@@ -10,6 +10,11 @@
     <meta name="author" content="">
 
     <title>1 Col Portfolio - Start Bootstrap Template</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap-social.css">
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -39,19 +44,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="logo navbar-brand" href="/timeline"><i class="fa fa-youtube-play"></i> Tinyshows</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <input class="search form-control" type="text" name="search" placeholder="Search for shows to follow...">
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="#"><i class="fa fa-television"></i> My shows</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#"><img class="img-circle avatar" src="http://placehold.it/20x20" alt="avatar">WohlfarthChris</a>
                     </li>
                 </ul>
             </div>
@@ -61,30 +66,21 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container content">
 
-        <!-- Page Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Page Heading
-                    <small>Secondary Text</small>
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
+
 
         <!-- Project One -->
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-2">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    <img class="img-circle img-responsive" src="http://placehold.it/200x200" alt="">
                 </a>
             </div>
-            <div class="col-md-5">
-                <h3>Project One</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <div class="col-md-10">
+                <h3>Suits</h3>
+                <h4>S05E05 - Mea Culpa</h4>
+                <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
             </div>
         </div>
         <!-- /.row -->
@@ -93,16 +89,15 @@
 
         <!-- Project Two -->
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-2">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    <img class="img-circle img-responsive" src="http://placehold.it/200x200" alt="">
                 </a>
             </div>
-            <div class="col-md-5">
-                <h3>Project Two</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <div class="col-md-10">
+                <h3>Suits</h3>
+                <h4>S05E05 - Mea Culpa</h4>
+                <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
             </div>
         </div>
         <!-- /.row -->
@@ -111,16 +106,15 @@
 
         <!-- Project Three -->
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-2">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    <img class="img-circle img-responsive" src="http://placehold.it/200x200" alt="">
                 </a>
             </div>
-            <div class="col-md-5">
-                <h3>Project Three</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <div class="col-md-10">
+                <h3>Suits</h3>
+                <h4>S05E05 - Mea Culpa</h4>
+                <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
             </div>
         </div>
         <!-- /.row -->
@@ -129,17 +123,15 @@
 
         <!-- Project Four -->
         <div class="row">
-
-            <div class="col-md-7">
+            <div class="col-md-2">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    <img class="img-circle img-responsive" src="http://placehold.it/200x200" alt="">
                 </a>
             </div>
-            <div class="col-md-5">
-                <h3>Project Four</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <div class="col-md-10">
+                <h3>Suits</h3>
+                <h4>S05E05 - Mea Culpa</h4>
+                <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
             </div>
         </div>
         <!-- /.row -->
@@ -148,16 +140,15 @@
 
         <!-- Project Five -->
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-2">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    <img class="img-circle img-responsive" src="http://placehold.it/200x200" alt="">
                 </a>
             </div>
-            <div class="col-md-5">
-                <h3>Project Five</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio repellendus atque porro distinctio quae id laboriosam facilis dolorum.</p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <div class="col-md-10">
+                <h3>Suits</h3>
+                <h4>S05E05 - Mea Culpa</h4>
+                <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
             </div>
         </div>
         <!-- /.row -->
@@ -167,44 +158,13 @@
         <!-- Pagination -->
         <div class="row text-center">
             <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
+                <a href="#">Show more</a>
             </div>
         </div>
         <!-- /.row -->
 
-        <hr>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
+
 
     </div>
     <!-- /.container -->

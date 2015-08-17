@@ -6,8 +6,68 @@
 
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f8f8f8;
 }
 
 footer {
     margin: 50px 0;
 }
+
+.navbar-fixed-top {
+    background-color: rgb(255, 255, 255);
+    border: none;
+}
+
+.logo {
+    color: #F67335;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 20px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #F67335; 
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: #ff9765; 
+}
+
+.navbar-nav {
+    float: right;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+    color: #F67335;
+}
+
+.navbar-inverse .navbar-nav li a:active {
+    color: #F67335;
+}
+
+.avatar {
+    margin-top: -2px;
+    margin-right: 5px;
+}
+
+.search {
+    height: 30px;
+    width: 170px;
+    margin-top: 10px;
+    font-size: 10px;
+    margin-right: 20px;
+}
+
+hr {
+    border: 2px solid #F67335;
+    width: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.content {
+    background-color: #ffffff;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
