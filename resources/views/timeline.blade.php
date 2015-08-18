@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>1 Col Portfolio - Start Bootstrap Template</title>
+    <title>Tinyshows</title>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap-social.css">
@@ -34,6 +34,14 @@
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -52,13 +60,17 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <input id="search" class="search form-control" type="text" name="search" placeholder="Search for shows to follow...">
+                        <input id="search" class="search form-control" type="text" name="search" placeholder="Search for shows to follow..." autocomplete="off">
+                        <i class="fa fa-search"></i>
                     </li>
                     <li>
                         <a href="#" class="myshows"><i class="fa fa-television"></i> My shows</a>
                     </li>
                     <li>
-                        <a href="#"><img class="img-circle avatar" src="http://placehold.it/20x20" alt="avatar">WohlfarthChris</a>
+                        <a href="/logout"><i class="fa fa-power-off"></i> Sign Out</a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="img-circle avatar" src="{{ Auth::user()->avatarimg }}" alt="avatar">{{ Auth::user()->name }}</a>
                     </li>
                 </ul>
             </div>
@@ -82,9 +94,10 @@
 
         <!-- Project One -->
         <div class="row">
+            <div class="col-md-8 episode">
             <div class="col-md-2">
                 <a href="#">
-                    <img class="img-circle img-responsive" src="http://placehold.it/200x200" alt="">
+                    <img class="episodeimg img-responsive" src="http://placehold.it/200x200" alt="">
                 </a>
             </div>
             <div class="col-md-10">
@@ -92,16 +105,21 @@
                 <h4>S05E05 - Mea Culpa</h4>
                 <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
             </div>
+            </div>
+            <div class="col-md-3 sidebar">
+                <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
+            </div>
         </div>
         <!-- /.row -->
 
-        <hr>
+
 
         <!-- Project Two -->
         <div class="row">
+            <div class="col-md-8 episode">
             <div class="col-md-2">
                 <a href="#">
-                    <img class="img-circle img-responsive" src="http://placehold.it/200x200" alt="">
+                    <img class="episodeimg img-responsive" src="http://placehold.it/200x200" alt="">
                 </a>
             </div>
             <div class="col-md-10">
@@ -109,16 +127,18 @@
                 <h4>S05E05 - Mea Culpa</h4>
                 <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
             </div>
+            </div>
         </div>
         <!-- /.row -->
 
-        <hr>
+
 
         <!-- Project Three -->
         <div class="row">
+            <div class="col-md-8 episode">
             <div class="col-md-2">
                 <a href="#">
-                    <img class="img-circle img-responsive" src="http://placehold.it/200x200" alt="">
+                    <img class="episodeimg img-responsive" src="http://placehold.it/200x200" alt="">
                 </a>
             </div>
             <div class="col-md-10">
@@ -126,16 +146,18 @@
                 <h4>S05E05 - Mea Culpa</h4>
                 <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
             </div>
+            </div>
         </div>
         <!-- /.row -->
 
-        <hr>
+
 
         <!-- Project Four -->
         <div class="row">
+            <div class="col-md-8 episode">
             <div class="col-md-2">
                 <a href="#">
-                    <img class="img-circle img-responsive" src="http://placehold.it/200x200" alt="">
+                    <img class="episodeimg img-responsive" src="http://placehold.it/200x200" alt="">
                 </a>
             </div>
             <div class="col-md-10">
@@ -143,16 +165,18 @@
                 <h4>S05E05 - Mea Culpa</h4>
                 <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
             </div>
+            </div>
         </div>
         <!-- /.row -->
 
-        <hr>
+
 
         <!-- Project Five -->
         <div class="row">
+            <div class="col-md-8 episode">
             <div class="col-md-2">
                 <a href="#">
-                    <img class="img-circle img-responsive" src="http://placehold.it/200x200" alt="">
+                    <img class="episodeimg img-responsive" src="http://placehold.it/200x200" alt="">
                 </a>
             </div>
             <div class="col-md-10">
@@ -160,10 +184,9 @@
                 <h4>S05E05 - Mea Culpa</h4>
                 <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
             </div>
+            </div>
         </div>
         <!-- /.row -->
-
-        <hr>
 
         <!-- Pagination -->
         <div class="row text-center">

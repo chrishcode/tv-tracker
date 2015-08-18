@@ -4,9 +4,19 @@ $(document).ready(function() {
             $('#myshows').animate({height: '0px'}, 200); 
         }
         else{
-            $('#myshows').animate({height: '300px'}, 200);            
+            $('#myshows').animate({height: '300px'}, 200);  
         }
 
+    });
+    
+    $('#search').focusin(function() {
+        $('#search').css('border-color', '#e1e8ed');
+        $('#search').css('box-shadow', 'none');
+        $('#search').css('background-color', '#ffffff');
+    });
+    
+    $('#search').focusout(function() {
+        $('#search').css('background-color', '#f5f8fa');
     });
 
         
@@ -27,8 +37,8 @@ $(document).ready(function() {
         $.getJSON('http://api.tvmaze.com/search/shows?q=' + searchField, function(data) {
             $.each(data, function(key, val){
                 if ((val.show.name.search(regex) != -1)) {
-                    output += '<a href="timeline/follow"><img class="img-responsive searchimg" src="'+val.show.image.medium+'" alt="'+ val.show.name +'" /></a>';
                     var tvRageId = val.show.externals.tvrage;
+                    output += '<a href="/follow/' + tvRageId + '">' + '<img class="img-responsive searchimg" src="'+val.show.image.medium+'" alt="'+ val.show.name +'" /></a>';
                     var tvRageName = val.show.name;
                     var status = val.show.status;
                     
