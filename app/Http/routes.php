@@ -18,9 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/timeline', function() {
-    return view('timeline');
-});
+Route::get('/timeline', 'FollowController@index');
 
 
 

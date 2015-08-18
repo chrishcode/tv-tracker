@@ -21,7 +21,24 @@ class FollowController extends Controller
      */
     public function index()
     {
-        //
+        $tvRageIds = Follow::where('userId', '=', Auth::user()->id)->get();
+        
+        $followimgs = array();
+        
+        foreach($tvRageIds as $follow) {
+            $tvRageId = $follow['tvRageId'];
+            
+            $follows = file_get_contents("http://api.tvmaze.com/lookup/shows?tvrage=$tvRageId");
+            $follows = json_decode($follows);
+            
+            $img = $follows->image->medium;
+            
+            array_push($followimgs, $img); 
+        }
+            
+        $followimgs = array_reverse($followimgs);
+        
+        return view('timeline', compact('followimgs'));
     }
 
     /**
@@ -46,6 +63,7 @@ class FollowController extends Controller
         $follow->userId = Auth::user()->id;
         $follow->tvRageId = $tvRageId;
         $follow->save();
+        
         return redirect('/timeline');
     }
 

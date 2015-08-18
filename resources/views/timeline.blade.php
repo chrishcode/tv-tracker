@@ -79,7 +79,11 @@
         <!-- /.container -->
     </nav>
     
-    <div id="myshows"></div>
+    <div id="myshows">
+        @foreach($followimgs as $img)
+            <a href="delete"><img class="searchimg" src="{{ $img }}"></a>
+        @endforeach
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div id="results"></div>     

@@ -95,6 +95,8 @@ hr {
     height: 0px;
     background-color: #efefef;
     margin-top: -20px;
+    overflow: hidden;
+    padding-left: 20px;
 /*    display: none;*/
 }
 

@@ -1,10 +1,10 @@
 $(document).ready(function() {
     $('.myshows').click(function() {
-        if($('#myshows').height() == 300) {
+        if($('#myshows').height() > 1) {
             $('#myshows').animate({height: '0px'}, 200); 
         }
         else{
-            $('#myshows').animate({height: '300px'}, 200);  
+            $('#myshows').animate({height: $("#myshows").get(0).scrollHeight}, 200); 
         }
 
     });
@@ -13,6 +13,7 @@ $(document).ready(function() {
         $('#search').css('border-color', '#e1e8ed');
         $('#search').css('box-shadow', 'none');
         $('#search').css('background-color', '#ffffff');
+        $('#myshows').animate({height: '0px'}, 200);
     });
     
     $('#search').focusout(function() {
