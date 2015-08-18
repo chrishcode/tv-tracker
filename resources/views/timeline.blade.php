@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/bootstrap-social.css">
     <link href='http://fonts.googleapis.com/css?family=Quicksand:400,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{{ URL::asset('js/main.js') }}"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -50,10 +52,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <input class="search form-control" type="text" name="search" placeholder="Search for shows to follow...">
+                        <input id="search" class="search form-control" type="text" name="search" placeholder="Search for shows to follow...">
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-television"></i> My shows</a>
+                        <a href="#" class="myshows"><i class="fa fa-television"></i> My shows</a>
                     </li>
                     <li>
                         <a href="#"><img class="img-circle avatar" src="http://placehold.it/20x20" alt="avatar">WohlfarthChris</a>
@@ -64,11 +66,19 @@
         </div>
         <!-- /.container -->
     </nav>
+    
+    <div id="myshows"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="results"></div>     
+        </div>
+    </div>
+
 
     <!-- Page Content -->
     <div class="container content">
-
-
+        
+        
 
         <!-- Project One -->
         <div class="row">
