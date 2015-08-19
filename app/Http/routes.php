@@ -73,3 +73,5 @@ Route::get('/logout', function() {
 
 
 Route::get('follow/{tvRageId}', 'FollowController@store');
+
+Route::get('unfollow/{tvRageId}', 'FollowController@destroy');

@@ -142,18 +142,28 @@ hr {
 
 .episode {
     background-color: #ffffff;
-    border-radius: 5px;
-    margin-bottom: 5px;    
+    border-bottom: 1px solid #efefef;
+    border-radius: 0px;
+    margin-bottom: 0px;  
+    padding-bottom: 20px;
+}
+
+
+.airdate {
+    font-size: 12px;
+    float: right;
+    color: #bbc4cb;
 }
 
 .episodeimg {
     border-radius: 5px;
     margin-top: 20px;
+    
 }
 
 .sidebar {
 /*    background-color: #ffffff;*/
-    height: 180px;
+    height: 100px;
     float: right;
     width: 31%;
     border-radius: 5px;
@@ -161,5 +171,7 @@ hr {
     padding-left: 0;
     padding-right: 0;
 }
+
+
 
 

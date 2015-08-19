@@ -24,6 +24,7 @@ class FollowController extends Controller
         $tvRageIds = Follow::where('userId', '=', Auth::user()->id)->get();
         
         $followimgs = array();
+        $tempArray = array();
         
         foreach($tvRageIds as $follow) {
             $tvRageId = $follow['tvRageId'];
@@ -33,12 +34,34 @@ class FollowController extends Controller
             
             $img = $follows->image->medium;
             
-            array_push($followimgs, $img); 
+            $tempArray = array($tvRageId => $img);
+            array_push($followimgs, $tempArray);
         }
             
         $followimgs = array_reverse($followimgs);
         
-        return view('timeline', compact('followimgs'));
+        
+        //episode feed
+        $episodes = array();
+        $tempepisodes = array();
+        $today = date('Y-m-d');
+        $followfeed = file_get_contents("http://api.tvmaze.com/schedule?country=US&date=$today");
+        $followfeed = json_decode($followfeed, true);
+        
+        foreach($tvRageIds as $tvRageId){
+            foreach($followfeed as $episode) {
+                $pTags = array("<p>", "</p>");
+                if($episode['show']['externals']['tvrage'] == $tvRageId->tvRageId) {
+                    $tempepisodes = array('showname' => $episode['show']['name'],  'image' => $episode['show']['image']['medium'], 'episodename' => $episode['name'], 'summary' => str_replace($pTags, '', $episode['summary']), 'airdate' => $episode['airdate']);
+
+                    array_push($episodes, $tempepisodes);
+                }
+            }
+            
+        }
+        
+
+        return view('timeline', compact('followimgs', 'episodes'));
     }
 
     /**
@@ -59,11 +82,16 @@ class FollowController extends Controller
      */
     public function store($tvRageId)
     {
-        $follow = new Follow;
-        $follow->userId = Auth::user()->id;
-        $follow->tvRageId = $tvRageId;
-        $follow->save();
+        $follows = Follow::where('userId', '=', Auth::user()->id)->where('tvRageId', '=', $tvRageId)->first();
         
+        if (is_null($follows)) {
+            $follow = new Follow;
+            $follow->userId = Auth::user()->id;
+            $follow->tvRageId = $tvRageId;
+            $follow->save();
+        }
+        
+
         return redirect('/timeline');
     }
 
@@ -107,8 +135,9 @@ class FollowController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($tvRageId)
     {
-        //
+        Follow::where('userId', '=', Auth::user()->id)->where('tvRageId', '=', $tvRageId)->delete();
+        return redirect('timeline');
     }
 }

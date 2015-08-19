@@ -16,7 +16,9 @@
     <link href='http://fonts.googleapis.com/css?family=Quicksand:400,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{{ URL::asset('js/pace.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
+
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -80,9 +82,18 @@
     </nav>
     
     <div id="myshows">
-        @foreach($followimgs as $img)
-            <a href="delete"><img class="searchimg" src="{{ $img }}"></a>
+        @foreach($followimgs as $followimg)
+        @foreach($followimg as $tvRageId => $img)
+            
+        
+        
+            <a href="unfollow/{{ $tvRageId }}">
+                <img class="searchimg" src="{{ $img }}">
+            </a>
+            @endforeach
         @endforeach
+
+
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -95,102 +106,28 @@
     <div class="container content">
         
         
-
-        <!-- Project One -->
-        <div class="row">
-            <div class="col-md-8 episode">
-            <div class="col-md-2">
-                <a href="#">
-                    <img class="episodeimg img-responsive" src="http://placehold.it/200x200" alt="">
-                </a>
-            </div>
-            <div class="col-md-10">
-                <h3>Suits</h3>
-                <h4>S05E05 - Mea Culpa</h4>
-                <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
-            </div>
-            </div>
             <div class="col-md-3 sidebar">
                 <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
             </div>
-        </div>
-        <!-- /.row -->
-
-
-
-        <!-- Project Two -->
+        <!-- episode-->
+        @foreach($episodes as $episode)
         <div class="row">
             <div class="col-md-8 episode">
             <div class="col-md-2">
                 <a href="#">
-                    <img class="episodeimg img-responsive" src="http://placehold.it/200x200" alt="">
+                    <img class="episodeimg img-responsive" src="{{ $episode['image'] }}" alt="">
                 </a>
             </div>
             <div class="col-md-10">
-                <h3>Suits</h3>
-                <h4>S05E05 - Mea Culpa</h4>
-                <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
+                <h3>{{ $episode['episodename'] }}<span class="airdate">{{ $episode['airdate'] }}</span></h3>
+                
+                <p>{{ $episode['summary'] }}</p>
             </div>
             </div>
         </div>
         <!-- /.row -->
+        @endforeach
 
-
-
-        <!-- Project Three -->
-        <div class="row">
-            <div class="col-md-8 episode">
-            <div class="col-md-2">
-                <a href="#">
-                    <img class="episodeimg img-responsive" src="http://placehold.it/200x200" alt="">
-                </a>
-            </div>
-            <div class="col-md-10">
-                <h3>Suits</h3>
-                <h4>S05E05 - Mea Culpa</h4>
-                <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
-            </div>
-            </div>
-        </div>
-        <!-- /.row -->
-
-
-
-        <!-- Project Four -->
-        <div class="row">
-            <div class="col-md-8 episode">
-            <div class="col-md-2">
-                <a href="#">
-                    <img class="episodeimg img-responsive" src="http://placehold.it/200x200" alt="">
-                </a>
-            </div>
-            <div class="col-md-10">
-                <h3>Suits</h3>
-                <h4>S05E05 - Mea Culpa</h4>
-                <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
-            </div>
-            </div>
-        </div>
-        <!-- /.row -->
-
-
-
-        <!-- Project Five -->
-        <div class="row">
-            <div class="col-md-8 episode">
-            <div class="col-md-2">
-                <a href="#">
-                    <img class="episodeimg img-responsive" src="http://placehold.it/200x200" alt="">
-                </a>
-            </div>
-            <div class="col-md-10">
-                <h3>Suits</h3>
-                <h4>S05E05 - Mea Culpa</h4>
-                <p>Jessica does damage control in the wake of Harvey punching Louis, just as Jack Soloff and Daniel Hardman are looking for weaknesses to exploit. Meanwhile, Donna counsels both men on how to rectify their issues. And Mike must find a way to turn down his recently announced promotion without raising suspicion - while he and Rachel combat an opposing attorney who holds the key to uncovering his secret.</p>
-            </div>
-            </div>
-        </div>
-        <!-- /.row -->
 
         <!-- Pagination -->
         <div class="row text-center">

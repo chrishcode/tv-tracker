@@ -1,5 +1,8 @@
 $(document).ready(function() {
+
     $('.myshows').click(function() {
+        
+        $('#results').hide();
         if($('#myshows').height() > 1) {
             $('#myshows').animate({height: '0px'}, 200); 
         }
@@ -19,6 +22,7 @@ $(document).ready(function() {
     $('#search').focusout(function() {
         $('#search').css('background-color', '#f5f8fa');
     });
+    
 
         
     $('#search').keyup(function(){
