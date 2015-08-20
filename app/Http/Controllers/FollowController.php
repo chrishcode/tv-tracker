@@ -41,26 +41,33 @@ class FollowController extends Controller
         $followimgs = array_reverse($followimgs);
         
         
+        
         //episode feed
         $episodes = array();
         $tempepisodes = array();
-        $today = date('Y-m-d');
-        $followfeed = file_get_contents("http://api.tvmaze.com/schedule?country=US&date=$today");
-        $followfeed = json_decode($followfeed, true);
         
-        foreach($tvRageIds as $tvRageId){
-            foreach($followfeed as $episode) {
-                $pTags = array("<p>", "</p>");
-                if($episode['show']['externals']['tvrage'] == $tvRageId->tvRageId) {
-                    $tempepisodes = array('showname' => $episode['show']['name'],  'image' => $episode['show']['image']['medium'], 'episodename' => $episode['name'], 'summary' => str_replace($pTags, '', $episode['summary']), 'airdate' => $episode['airdate']);
+        for($i = 0; $i < 16; $i++) {
+	        $date = date("Y-m-d",strtotime("-$i day"));
+            $followfeed = file_get_contents("http://api.tvmaze.com/schedule?country=US&date=$date");
+            $followfeed = json_decode($followfeed, true);
 
-                    array_push($episodes, $tempepisodes);
+            foreach($tvRageIds as $tvRageId){
+                foreach($followfeed as $episode) {
+                    $pTags = array("<p>", "</p>", "<br />");
+                    if($episode['show']['externals']['tvrage'] == $tvRageId->tvRageId) {
+                        $tempepisodes = array('showname' => $episode['show']['name'],  'image' => $episode['show']['image']['medium'], 'episodename' => $episode['name'], 'season' => $episode['season'], 'episode' => $episode['number'], 'summary' => str_replace($pTags, '', $episode['summary']), 'airdate' => $episode['airdate']);
+
+                        array_push($episodes, $tempepisodes);
+                        
+                    }
                 }
+
             }
-            
+        
         }
         
-
+        
+//        return $episodes;
         return view('timeline', compact('followimgs', 'episodes'));
     }
 
@@ -138,6 +145,7 @@ class FollowController extends Controller
     public function destroy($tvRageId)
     {
         Follow::where('userId', '=', Auth::user()->id)->where('tvRageId', '=', $tvRageId)->delete();
+
         return redirect('timeline');
     }
 }

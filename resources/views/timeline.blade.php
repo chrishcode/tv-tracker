@@ -119,7 +119,7 @@
                 </a>
             </div>
             <div class="col-md-10">
-                <h3>{{ $episode['episodename'] }}<span class="airdate">{{ $episode['airdate'] }}</span></h3>
+                <h3>S{{ $episode['season'] }}E{{ $episode['episode'] }} - {{ $episode['episodename'] }} <span class="airdate">{{ $episode['airdate'] }}</span></h3>
                 
                 <p>{{ $episode['summary'] }}</p>
             </div>
