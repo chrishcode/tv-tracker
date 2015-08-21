@@ -1,4 +1,21 @@
 $(document).ready(function() {
+    
+    $('.logo').click(function() {
+        $('.spinner').show();
+    });
+    
+    $('.unfollow').click(function() {
+        $('.spinner').show();
+    });
+    
+    
+    $(document).ajaxComplete(function(){
+        $('.follow').click(function() {
+            $('.spinner').show();
+        });
+    }); 
+    
+
 
     $('.myshows').click(function() {
         
@@ -43,7 +60,7 @@ $(document).ready(function() {
             $.each(data, function(key, val){
                 if ((val.show.name.search(regex) != -1)) {
                     var tvRageId = val.show.externals.tvrage;
-                    output += '<a href="/follow/' + tvRageId + '">' + '<img class="img-responsive searchimg" src="'+val.show.image.medium+'" alt="'+ val.show.name +'" /></a>';
+                    output += '<a class="follow" href="/follow/' + tvRageId + '">' + '<img class="img-responsive searchimg" src="'+val.show.image.medium+'" alt="'+ val.show.name +'" /></a>';
                     var tvRageName = val.show.name;
                     var status = val.show.status;
                     

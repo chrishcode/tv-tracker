@@ -16,7 +16,6 @@
     <link href='http://fonts.googleapis.com/css?family=Quicksand:400,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="{{ URL::asset('js/pace.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
 
 
@@ -87,7 +86,7 @@
             
         
         
-            <a href="unfollow/{{ $tvRageId }}">
+            <a class="unfollow" href="unfollow/{{ $tvRageId }}">
                 <img class="searchimg" src="{{ $img }}">
             </a>
             @endforeach
@@ -104,11 +103,15 @@
 
     <!-- Page Content -->
     <div class="container content">
+        <div class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
         
-        
-            <div class="col-md-3 sidebar">
-                <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
-            </div>
+        <div class="col-md-3 sidebar">
+            <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
+        </div>
         <!-- episode-->
         @foreach($episodes as $episode)
         <div class="row">

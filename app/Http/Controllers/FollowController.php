@@ -46,7 +46,7 @@ class FollowController extends Controller
         $episodes = array();
         $tempepisodes = array();
         
-        for($i = 0; $i < 16; $i++) {
+        for($i = 0; $i < 32; $i++) {
 	        $date = date("Y-m-d",strtotime("-$i day"));
             $followfeed = file_get_contents("http://api.tvmaze.com/schedule?country=US&date=$date");
             $followfeed = json_decode($followfeed, true);
@@ -98,7 +98,6 @@ class FollowController extends Controller
             $follow->save();
         }
         
-
         return redirect('/timeline');
     }
 
@@ -145,7 +144,8 @@ class FollowController extends Controller
     public function destroy($tvRageId)
     {
         Follow::where('userId', '=', Auth::user()->id)->where('tvRageId', '=', $tvRageId)->delete();
-
+        
+        
         return redirect('timeline');
     }
 }
