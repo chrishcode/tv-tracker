@@ -109,13 +109,29 @@
           <div class="bounce3"></div>
         </div>
         
-        <div class="col-md-3 sidebar">
-            <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
+        <div class="right col-md-4">
+            <div class="row">
+                <div class="col-md-8"></div>
+
+                <div class="col-md-12">
+                    <div id="sidebar" class="sidebar">
+                        <div id="fb" class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
+
+                        <div class="footer">
+                            <p>&copy; tinyshows.com</p>
+                        </div>
+                        
+                        <div id="ad" class="ad">Reklam</div>
+                    </div>
+                </div>
+            </div>
         </div>
+        
+        <div class="feed col-md-8">
         <!-- episode-->
         @foreach($episodes as $episode)
         <div class="row">
-            <div class="col-md-8 episode">
+            <div class="col-md-12 episode">
             <div class="col-md-2">
                 <a href="#">
                     <img class="episodeimg img-responsive" src="{{ $episode['image'] }}" alt="">
@@ -130,7 +146,7 @@
         </div>
         <!-- /.row -->
         @endforeach
-
+        </div>
 
         <!-- Pagination -->
         <div class="row text-center">
