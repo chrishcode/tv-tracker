@@ -163,7 +163,7 @@ hr {
 .episodeimg {
     border-radius: 5px;
     margin-top: 20px;
-    
+    width: 120px;
 }
 
 .feed {
@@ -190,7 +190,7 @@ hr {
 
 .footer {
     width: 100%;
-    height: 100px;
+    height: 40px;
     background-color: #ffffff;
     float: right;
     margin-top: 20px;
@@ -199,6 +199,20 @@ hr {
     padding: 10px;
     font-size: 11px;
     color: #bbc4cb;
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer ul li {
+    float: left;
+    margin-right: 10px;
+}
+
+.footer ul li a {
+    color: #F2692F;
 }
 
 
@@ -262,6 +276,65 @@ hr {
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
   }
+}
+
+.navbar-toggle {
+    background-color: #DEDEDE;
+    border: none;
+}
+
+.navbar-inverse .navbar-toggle:hover {
+    background-color: #DEDEDE;
+    border: none;
+}
+
+.navbar-inverse {
+    border: none;
+}
+
+.navbar-collapse .collapsein {
+    border: none;
+}
+
+
+@media(max-width: 991px) {
+
+    .logo {
+        /*background-color: red;*/
+
+    }
+    
+    .navbar-nav li {
+        float: left;
+    }
+
+    #search {
+        width: 130px;
+    }
+
+    #sidebar {
+        display: none;
+    }
+
+}
+
+
+
+@media(max-width: 800px) {
+
+    .logo {
+        /*background-color: red;*/
+
+    }
+    
+    .navbar-nav li {
+        float: left;
+    }
+
+    #search {
+        width: 200px;
+    }
+
 }
 
 

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Cache;
 use App\User;
 use Auth;
 use App\Follow;
@@ -46,7 +47,8 @@ class FollowController extends Controller
         $episodes = array();
         $tempepisodes = array();
         
-        for($i = 0; $i < 32; $i++) {
+        
+        for($i = 0; $i < 7; $i++) {
 	        $date = date("Y-m-d",strtotime("-$i day"));
             $followfeed = file_get_contents("http://api.tvmaze.com/schedule?country=US&date=$date");
             $followfeed = json_decode($followfeed, true);
@@ -66,9 +68,8 @@ class FollowController extends Controller
         
         }
         
-        
 //        return $episodes;
-        return view('timeline', compact('followimgs', 'episodes'));
+        return view('timeline', compact('followimgs', 'episodes', 'tvRageIds'));
     }
 
     /**

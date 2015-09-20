@@ -24,6 +24,7 @@ $(document).ready(function() {
     $('.unfollow').click(function() {
         $('.spinner').show();
     });
+
     
     
     $(document).ajaxComplete(function(){
@@ -77,7 +78,7 @@ $(document).ready(function() {
             $.each(data, function(key, val){
                 if ((val.show.name.search(regex) != -1)) {
                     var tvRageId = val.show.externals.tvrage;
-                    output += '<a class="follow" href="/follow/' + tvRageId + '">' + '<img class="img-responsive searchimg" src="'+val.show.image.medium+'" alt="'+ val.show.name +'" /></a>';
+                    output += '<a class="follow" title="Follow" href="/follow/' + tvRageId + '">' + '<img class="img-responsive searchimg" src="'+val.show.image.medium+'" alt="'+ val.show.name +'" /></a>';
                     var tvRageName = val.show.name;
                     var status = val.show.status;
                     

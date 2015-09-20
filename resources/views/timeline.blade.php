@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="trakker">
 
 <head>
 
@@ -16,7 +16,9 @@
     <link href='http://fonts.googleapis.com/css?family=Quicksand:400,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
+    <script src="{{ URL::asset('js/angular.js') }}"></script>
 
 
     <!-- Bootstrap Core CSS -->
@@ -86,7 +88,7 @@
             
         
         
-            <a class="unfollow" href="unfollow/{{ $tvRageId }}">
+            <a class="unfollow" href="unfollow/{{ $tvRageId }}" title="Unfollow">
                 <img class="searchimg" src="{{ $img }}">
             </a>
             @endforeach
@@ -115,10 +117,14 @@
 
                 <div class="col-md-12">
                     <div id="sidebar" class="sidebar">
-                        <div id="fb" class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
+                        <div id="fb" class="fb-page" data-href="https://www.facebook.com/tvmaze?_rdr=p" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/tvmaze?_rdr=p"><a href="https://www.facebook.com/tvmaze?_rdr=p">Tvmaze.com</a></blockquote></div></div>
 
                         <div class="footer">
-                            <p>&copy; tinyshows.com</p>
+                            <ul>
+                                <li>&copy; tinyshows.com</li>
+                                <li><a href="mailto:chris.wohlfarth@gmail.com">Contact</a></li>
+
+                            </ul>
                         </div>
                         
                         <div id="ad" class="ad">Reklam</div>
@@ -127,8 +133,23 @@
             </div>
         </div>
         
-        <div class="feed col-md-8">
+        <div class="feed col-md-8" ng-controller="timelineController">
+        <form ng-submit="loadEpisodes()">
+            <input type="submit" value="Load Episodes" class="btn btn-success">
+        </form>
+        <ul ng-repeat="day in schedule">
+{{--             @foreach($tvRageIds as $tvRageId) --}}
+                <li ng-repeat="episode in day">
+{{--                     <div ng-if="$tvRageId == episode.show.externals.tvrage"> --}}
+                    <img width="50" src="@{{episode.show.image.medium}}">@{{episode.show.name + ' - ' + episode.name}}  
+{{--                     </div> --}}
+                </li>
+{{--             @endforeach --}}
+            <hr>
+        </ul>
+
         <!-- episode-->
+        @if($episodes != null)
         @foreach($episodes as $episode)
         <div class="row">
             <div class="col-md-12 episode">
@@ -146,14 +167,26 @@
         </div>
         <!-- /.row -->
         @endforeach
+        @else
+        <div class="row">
+            <div class="col-md-12 episode">
+            <div class="col-md-2">
+                <a href="#">
+                    <img class="episodeimg img-responsive" src="http://placehold.it/100x150" alt="">
+                </a>
+            </div>
+            <div class="col-md-10">
+                <h3>No new episodes :(</h3>
+                <p>There are no new episodes in your feed right now.</p>
+                <p>Start following some new tv shows by searching for them.</p>
+            </div>
+            </div>
+        </div>
+        @endif
         </div>
 
         <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <a href="#">Show more</a>
-            </div>
-        </div>
+
         <!-- /.row -->
 
 
