@@ -15,6 +15,14 @@ use App\Follow;
 
 class FollowController extends Controller
 {
+
+    public function tvRageIds() 
+    {
+        $tvRageIds = Follow::where('userId', '=', Auth::user()->id)->get();
+
+        return $tvRageIds;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +56,7 @@ class FollowController extends Controller
         $tempepisodes = array();
         
         
-        for($i = 0; $i < 7; $i++) {
+        for($i = 0; $i < 0; $i++) {
 	        $date = date("Y-m-d",strtotime("-$i day"));
             $followfeed = file_get_contents("http://api.tvmaze.com/schedule?country=US&date=$date");
             $followfeed = json_decode($followfeed, true);

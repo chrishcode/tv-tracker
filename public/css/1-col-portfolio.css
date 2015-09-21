@@ -297,6 +297,37 @@ hr {
 }
 
 
+
+/*Angularjs timeline styles*/
+
+
+.timeline {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.timeline .ep {
+    width: 100%;
+}
+
+.timeline .img {
+    clear: both;
+    float: left;
+    width: 20%;
+}
+
+.timeline .desc {
+    float: left;
+    width: 80%;
+}
+
+
+
+
+/*Angularjs timeline styles end*/
+
+
 @media(max-width: 991px) {
 
     .logo {

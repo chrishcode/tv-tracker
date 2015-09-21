@@ -38,6 +38,7 @@
 
 <body>
 <div id="fb-root"></div>
+<!--
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -45,6 +46,7 @@
   js.src = "//connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.4";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+-->
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -117,7 +119,9 @@
 
                 <div class="col-md-12">
                     <div id="sidebar" class="sidebar">
+                        <!--
                         <div id="fb" class="fb-page" data-href="https://www.facebook.com/tvmaze?_rdr=p" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/tvmaze?_rdr=p"><a href="https://www.facebook.com/tvmaze?_rdr=p">Tvmaze.com</a></blockquote></div></div>
+                        -->
 
                         <div class="footer">
                             <ul>
@@ -134,55 +138,88 @@
         </div>
         
         <div class="feed col-md-8" ng-controller="timelineController">
-        <form ng-submit="loadEpisodes()">
-            <input type="submit" value="Load Episodes" class="btn btn-success">
-        </form>
-        <ul ng-repeat="day in schedule">
-{{--             @foreach($tvRageIds as $tvRageId) --}}
-                <li ng-repeat="episode in day">
-{{--                     <div ng-if="$tvRageId == episode.show.externals.tvrage"> --}}
-                    <img width="50" src="@{{episode.show.image.medium}}">@{{episode.show.name + ' - ' + episode.name}}  
-{{--                     </div> --}}
-                </li>
-{{--             @endforeach --}}
-            <hr>
-        </ul>
+            <ul class="timeline">
+               <li ng-repeat="day in schedule">
+                    <div ng-repeat="episode in day">
+                        <div ng-repeat="tvRageId in tvRageIds">
+                            <div ng-if="tvRageId.tvRageId == episode.show.externals.tvrage">
+                                <div class="ep">
+                                    <div class="img">
+                                        <img class="episodeimg img-responsive" width="50" src="@{{episode.show.image.medium}}">
+                                    </div>
 
-        <!-- episode-->
-        @if($episodes != null)
-        @foreach($episodes as $episode)
-        <div class="row">
-            <div class="col-md-12 episode">
-            <div class="col-md-2">
-                <a href="#">
-                    <img class="episodeimg img-responsive" src="{{ $episode['image'] }}" alt="">
-                </a>
+                                    <div class="desc">
+                                        <h3>@{{'Season ' + episode.season + ' Episode ' + episode.number + ' - ' + episode.name}}</h3>
+                                        <p>@{{episode.airdate + ' | ' + episode.airtime + ' | ' + episode.show.network.name}}</p>
+                                        <p>@{{episode.summary}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li ng-repeat="day in more">
+                    <div ng-repeat="episode in day">
+                        <div ng-repeat="tvRageId in tvRageIds">
+                            <div ng-if="tvRageId.tvRageId == episode.show.externals.tvrage">
+                                <div class="ep">
+                                    <div class="img">
+                                        <img class="episodeimg img-responsive" width="50" src="@{{episode.show.image.medium}}">
+                                    </div>
+
+                                    <div class="desc">
+                                        <h3>@{{'Season ' + episode.season + ' Episode ' + episode.number + ' - ' + episode.name}}</h3>
+                                        <p>@{{episode.airdate + ' | ' + episode.airtime + ' | ' + episode.show.network.name}}</p>
+                                        <p>@{{episode.summary}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- episode-->
+            @if($episodes != null)
+            @foreach($episodes as $episode)
+            <div class="row">
+                <div class="col-md-12 episode">
+                <div class="col-md-2">
+                    <a href="#">
+                        <img class="episodeimg img-responsive" src="{{ $episode['image'] }}" alt="">
+                    </a>
+                </div>
+                <div class="col-md-10">
+                    <h3>S{{ $episode['season'] }}E{{ $episode['episode'] }} - {{ $episode['episodename'] }} <span class="airdate">{{ $episode['airdate'] }}</span></h3>
+                    
+                    <p>{{ $episode['summary'] }}</p>
+                </div>
+                </div>
             </div>
-            <div class="col-md-10">
-                <h3>S{{ $episode['season'] }}E{{ $episode['episode'] }} - {{ $episode['episodename'] }} <span class="airdate">{{ $episode['airdate'] }}</span></h3>
-                
-                <p>{{ $episode['summary'] }}</p>
+            <!-- /.row -->
+            @endforeach
+            @else
+            <div class="row">
+                <div class="col-md-12 episode">
+                <div class="col-md-2">
+                    <a href="#">
+                        <img class="episodeimg img-responsive" src="http://placehold.it/100x150" alt="">
+                    </a>
+                </div>
+                <div class="col-md-10">
+                    <h3>No new episodes :(</h3>
+                    <p>There are no new episodes in your feed right now.</p>
+                    <p>Start following some new tv shows by searching for them.</p>
+                </div>
+                </div>
             </div>
-            </div>
-        </div>
-        <!-- /.row -->
-        @endforeach
-        @else
-        <div class="row">
-            <div class="col-md-12 episode">
-            <div class="col-md-2">
-                <a href="#">
-                    <img class="episodeimg img-responsive" src="http://placehold.it/100x150" alt="">
-                </a>
-            </div>
-            <div class="col-md-10">
-                <h3>No new episodes :(</h3>
-                <p>There are no new episodes in your feed right now.</p>
-                <p>Start following some new tv shows by searching for them.</p>
-            </div>
-            </div>
-        </div>
-        @endif
+            @endif
+
+            <!-- Ladda in fler resultat -->
+            <form ng-submit="loadMoreEpisodes()">
+                <input type="submit" value="Show More" class="btn btn-success">
+            </form>
         </div>
 
         <!-- Pagination -->
