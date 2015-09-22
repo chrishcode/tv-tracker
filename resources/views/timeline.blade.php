@@ -13,12 +13,14 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap-social.css">
-    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type='text/javascript' src="{{ URL::asset('js/ng-infinite-scroll.min.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
     <script src="{{ URL::asset('js/angular.js') }}"></script>
+
 
 
     <!-- Bootstrap Core CSS -->
@@ -47,6 +49,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 -->
+    
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -107,11 +110,6 @@
 
     <!-- Page Content -->
     <div class="container content">
-        <div class="spinner">
-          <div class="bounce1"></div>
-          <div class="bounce2"></div>
-          <div class="bounce3"></div>
-        </div>
         
         <div class="right col-md-4">
             <div class="row">
@@ -136,8 +134,8 @@
                 </div>
             </div>
         </div>
-        
-        <div class="feed col-md-8" ng-controller="timelineController">
+
+        <div class="feed col-md-8" ng-controller="timelineController" infinite-scroll="loadMoreEpisodes()" infinite-scroll-distance="0">
             <ul class="timeline">
                <li ng-repeat="day in schedule">
                     <div ng-repeat="episode in day">
@@ -150,8 +148,8 @@
 
                                     <div class="desc">
                                         <h3>@{{'Season ' + episode.season + ' Episode ' + episode.number + ' - ' + episode.name}}</h3>
-                                        <p>@{{episode.airdate + ' | ' + episode.airtime + ' | ' + episode.show.network.name}}</p>
-                                        <p>@{{episode.summary}}</p>
+                                        <p class="descairdate">@{{episode.airdate + ' | ' + episode.airtime + ' | ' + episode.show.network.name}}</p>
+                                        <p class="descsummary">@{{episode.summary | htmlToPlaintext}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -170,8 +168,8 @@
 
                                     <div class="desc">
                                         <h3>@{{'Season ' + episode.season + ' Episode ' + episode.number + ' - ' + episode.name}}</h3>
-                                        <p>@{{episode.airdate + ' | ' + episode.airtime + ' | ' + episode.show.network.name}}</p>
-                                        <p>@{{episode.summary}}</p>
+                                        <p class="descairdate">@{{episode.airdate + ' | ' + episode.airtime + ' | ' + episode.show.network.name}}</p>
+                                        <p class="descsummary">@{{episode.summary | htmlToPlaintext}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -200,7 +198,7 @@
             <!-- /.row -->
             @endforeach
             @else
-            <div class="row">
+{{--             <div class="row">
                 <div class="col-md-12 episode">
                 <div class="col-md-2">
                     <a href="#">
@@ -213,14 +211,14 @@
                     <p>Start following some new tv shows by searching for them.</p>
                 </div>
                 </div>
-            </div>
+            </div> --}}
             @endif
-
-            <!-- Ladda in fler resultat -->
-            <form ng-submit="loadMoreEpisodes()">
-                <input type="submit" value="Show More" class="btn btn-success">
-            </form>
+            <div class="loading">
+                <div class="sp sp-circle"></div>
+                <p>Loading...</p>
+            </div>
         </div>
+
 
         <!-- Pagination -->
 

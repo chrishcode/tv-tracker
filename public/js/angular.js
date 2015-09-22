@@ -1,4 +1,13 @@
-var app = angular.module('trakker', []);
+var app = angular.module('trakker', ['infinite-scroll']);
+
+
+//filtrerar bort html taggar
+app.filter('htmlToPlaintext', function() {
+    return function(text) {
+      return  text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+  }
+);
 
 
 app.controller('timelineController', function($scope, $http) {
@@ -10,21 +19,22 @@ app.controller('timelineController', function($scope, $http) {
     });
 
 
-	var array = [];
+	setTimeout(function() {
+		var array = [];
 
-	for(var i = 0; i < 7; i++) {
-		var today = new Date();
-		today.setDate(today.getDate() - i);
-		var date = today.toISOString().substring(0, 10); //rätt format
-		
-		$http.get("http://api.tvmaze.com/schedule?country=US&date=" + date).success(function(response) {
-	    	array.push(response);
-	    });
-	}
+		for(var i = 0; i < 7; i++) {
+			var today = new Date();
+			today.setDate(today.getDate() - i);
+			var date = today.toISOString().substring(0, 10); //rätt format
+			
+			$http.get("http://api.tvmaze.com/schedule?country=US&date=" + date).success(function(response) {
+		    	array.push(response);
+		    });
+		}
 
-	$scope.schedule = array;
+		$scope.schedule = array;
 
-
+	}, 300);
 
 
 	//laddar fler episoder (för 7 dagar till)
@@ -53,6 +63,9 @@ app.controller('timelineController', function($scope, $http) {
 	}
 
 });
+
+
+
 
 
 
