@@ -1,0 +1,198 @@
+
+/*
+primary #22313f
+secondary #DC7E7E
+*/
+
+
+body {
+	background-color: #F7F7F7;
+	font-family: 'Quicksand', sans-serif;
+	color: #22313f;
+}
+
+
+/*container*/
+
+.container {
+	width: 69%;
+}
+
+/*navbar*/
+
+.navbar {
+	background-color: #F7F7F7;
+	height: 50px;
+	border: none;
+}
+
+.nav {
+	float: right;
+}
+
+.navbar .logo {
+	font-size: 20px;
+	letter-spacing: 1px;
+	color: #DC7E7E;
+	margin-right: 30px;
+}
+
+.navbar .logo:hover {
+	color: #DC7E7E;
+}
+
+.navbar-inverse .navbar-nav li a {
+	font-size: 12px;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+	color: #DC7E7E;
+}
+
+.search-nav {
+	float: left;
+}
+
+.search {
+	margin-top: 10px;
+	height: 30px;
+	width: 500px;
+
+	background-color: #E8E9EB;
+	border: none;	
+	box-shadow: none;
+	color: #999DA0;
+	font-size: 12px;
+}
+
+.search:focus {
+	box-shadow: none;
+}
+
+.userimg {
+	width: 25px;
+	margin-right: 10px;
+}
+
+
+
+.navbar-inverse .navbar-nav li a.last {
+	padding-right: 0;
+}
+
+
+
+
+
+/*cover image*/
+
+.coverimg {
+	float: left;
+	width: 100%;
+	background-color: #22313f;
+	height: 250px;
+	background-image: url('../img/coverimg.jpg');
+	background-position: top left;
+	background-repeat:  no-repeat;
+	/*background-attachment: fixed;*/
+	background-size:  cover;
+}
+
+.coverimg h1 {
+	font-weight: 300;
+	text-align: center;
+	color: #ffffff;
+	margin-top: 130px;
+	font-size: 28px;
+}
+
+
+/*timeline*/
+
+.feed {
+	width: 72%;
+	float: left;
+	margin-top: 20px;
+}
+
+.timeline {
+	list-style: none;
+	padding: 0;
+}
+
+.ep {
+	width: 100%;
+	height: 100%;
+}
+
+.img {
+	width: 18%;
+}
+
+.episodeimg {
+	width: 100%;
+	float: left;
+	margin-right: 15%;
+	border-radius: 5px;
+}
+
+.desc {
+	width: 100%;
+}
+
+.descairdate {
+	color: #A5A6AB;
+	font-size: 13px;
+	letter-spacing: 1px;
+}
+
+.descsummary {
+	color: #6A6A6A;
+	font-size: 12px;
+	letter-spacing: 1px;
+	margin-top: 20px;
+}
+
+.timeline li {
+	float: left;
+	margin-bottom: 0;
+}
+
+hr {
+	width: 100%;
+	float: left;
+	margin-bottom: 5px;
+	margin-top: 25px;
+	background-color: #E8E8E8;
+}
+
+
+/*sidebar*/
+
+.sidebar {
+	width: 25%;
+	height: 400px;
+	background-color: #ECEDEF;
+	float: right;
+	margin-top: 40px;
+	border-radius: 5px;
+}
+
+
+/*footer*/
+
+.footer {
+	font-size: 11px;
+	color: #a7a7a7;
+	margin-top: 420px;
+}
+
+.footer ul {
+	padding: 0;
+	list-style: none;
+}
+
+.footer ul li {
+	float: left;
+	margin-right: 10px;
+}
