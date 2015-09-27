@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/statictimeline', function () {
-    return view('statictimeline');
+Route::get('/oldtimeline', function () {
+    return view('oldtimeline');
 });
 
 Route::get('/timeline', 'FollowController@index');

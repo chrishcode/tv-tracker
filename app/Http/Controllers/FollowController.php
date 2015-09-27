@@ -51,33 +51,33 @@ class FollowController extends Controller
         
         
         
-        //episode feed
-        $episodes = array();
-        $tempepisodes = array();
+        // //episode feed
+        // $episodes = array();
+        // $tempepisodes = array();
         
         
-        for($i = 0; $i < 0; $i++) {
-	        $date = date("Y-m-d",strtotime("-$i day"));
-            $followfeed = file_get_contents("http://api.tvmaze.com/schedule?country=US&date=$date");
-            $followfeed = json_decode($followfeed, true);
+        // for($i = 0; $i < 0; $i++) {
+	       //  $date = date("Y-m-d",strtotime("-$i day"));
+        //     $followfeed = file_get_contents("http://api.tvmaze.com/schedule?country=US&date=$date");
+        //     $followfeed = json_decode($followfeed, true);
 
-            foreach($tvRageIds as $tvRageId){
-                foreach($followfeed as $episode) {
-                    $pTags = array("<p>", "</p>", "<br />");
-                    if($episode['show']['externals']['tvrage'] == $tvRageId->tvRageId) {
-                        $tempepisodes = array('showname' => $episode['show']['name'],  'image' => $episode['show']['image']['medium'], 'episodename' => $episode['name'], 'season' => $episode['season'], 'episode' => $episode['number'], 'summary' => str_replace($pTags, '', $episode['summary']), 'airdate' => $episode['airdate']);
+        //     foreach($tvRageIds as $tvRageId){
+        //         foreach($followfeed as $episode) {
+        //             $pTags = array("<p>", "</p>", "<br />");
+        //             if($episode['show']['externals']['tvrage'] == $tvRageId->tvRageId) {
+        //                 $tempepisodes = array('showname' => $episode['show']['name'],  'image' => $episode['show']['image']['medium'], 'episodename' => $episode['name'], 'season' => $episode['season'], 'episode' => $episode['number'], 'summary' => str_replace($pTags, '', $episode['summary']), 'airdate' => $episode['airdate']);
 
-                        array_push($episodes, $tempepisodes);
+        //                 array_push($episodes, $tempepisodes);
                         
-                    }
-                }
+        //             }
+        //         }
 
-            }
+        //     }
         
-        }
+        // }
         
 //        return $episodes;
-        return view('timeline', compact('followimgs', 'episodes', 'tvRageIds'));
+        return view('timeline', compact('followimgs', 'tvRageIds'));
     }
 
     /**

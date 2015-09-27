@@ -129,10 +129,15 @@ a:hover {
 
 /*timeline*/
 
+.content {
+    margin-bottom: 50px;
+    margin-top: 0px;
+}
+
 .feed {
 	width: 72%;
 	float: left;
-	margin-top: 20px;
+	margin-top: 40px;
 }
 
 .timeline {
@@ -147,6 +152,8 @@ a:hover {
 
 .img {
 	width: 18%;
+	float: left;
+	margin-right: 2%;
 }
 
 .episodeimg {
@@ -157,7 +164,12 @@ a:hover {
 }
 
 .desc {
-	width: 100%;
+	width: 80%;
+	float: left;
+}
+
+.desc h3 {
+	margin-top: 5px;
 }
 
 .descairdate {
@@ -176,12 +188,13 @@ a:hover {
 .timeline li {
 	float: left;
 	margin-bottom: 0;
+	width: 100%;
 }
 
 hr {
 	width: 100%;
 	float: left;
-	margin-bottom: 5px;
+	margin-bottom: 25px;
 	margin-top: 25px;
 	background-color: #E8E8E8;
 }
@@ -191,7 +204,7 @@ hr {
 
 .sidebar {
 	width: 25%;
-	height: 540px;
+	height: 510px;
 	background-color: #ECEDEF;
 	float: right;
 	margin-top: 40px;
@@ -201,19 +214,27 @@ hr {
 
 .sidebarshow {
 	width: 100%;
-	height: 20%;
+	height: 23%;
 }
 
 .sidebarshow h3 {
 	font-size: 20px;
+	margin-top: 5px;
 }
 
 .sidebarshow .descairdate {
 	font-size: 11px;
+	margin-bottom: 5px;
 }
 
 .sidebarshow .img {
 	width: 23%;
+	margin-right: 4%;
+}
+
+.sidebarshow .desc {
+	width: 73%;
+	height: 70%;
 }
 
 .sidebar .btn-default {
@@ -225,6 +246,7 @@ hr {
 	background-color: #D6D9DC;
 	color: #22313f;
 	width: 100%;
+	margin-bottom: 20px;
 }
 
 .sidebar .btn-default:active {
@@ -259,4 +281,47 @@ hr {
 .footer ul li {
 	float: left;
 	margin-right: 10px;
+}
+
+
+
+
+/*loader*/
+
+.loading p {
+    text-align: center;
+}
+
+
+.sp {
+  width: 32px;
+  height: 32px;
+  clear: both;
+  margin: 20px auto;
+}
+
+/* Spinner Circle Rotation */
+.sp-circle {
+  border: 4px rgba(220, 126, 126, 0.25) solid;
+  border-top: 4px #DC7E7E solid;
+  border-radius: 50%;
+  -webkit-animation: spCircRot .6s infinite linear;
+  animation: spCircRot .6s infinite linear;
+}
+
+@-webkit-keyframes spCircRot {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@keyframes spCircRot {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
