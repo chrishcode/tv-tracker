@@ -28,10 +28,10 @@
             <ul class="nav navbar-nav search-nav">
         	    <li>
                     <input id="search" class="search form-control" type="text" name="search" placeholder="Search for shows to follow..." autocomplete="off">
-                    
+
                 </li>
             </ul>
-            
+
             <ul class="nav navbar-nav">
                 <li>
                     <a href="#" class="myshows"><i class="fa fa-television"></i> <span>Following</span></a>
@@ -46,10 +46,12 @@
         </div>
         <!-- /.container -->
     </nav>
-	
+
+
     <div class="coverimg">
+		<div id="resultswrap"><div class="container"><div id="results"></div></div></div>
 	    <div class="container">
-	     	<h1>Welcome back {{ Auth::user()->name }}, it's tv show time!</h1>   	
+	     	<h1>Welcome back {{ Auth::user()->name }}, it's tv show time!</h1>
 	    </div>
     </div>
 
@@ -97,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                </li>  
+                </li>
             </ul>
 
             <div class="loading">

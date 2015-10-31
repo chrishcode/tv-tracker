@@ -12,15 +12,24 @@ use Cache;
 use App\User;
 use Auth;
 use App\Follow;
+use DB;
 
 class FollowController extends Controller
 {
-
-    public function tvRageIds() 
+    //Get all the the tv shows a user is following
+    public function tvRageIds()
     {
         $tvRageIds = Follow::where('userId', '=', Auth::user()->id)->get();
 
         return $tvRageIds;
+    }
+
+    // Get the 10 most followed tv shows by all users
+    public function getPopularShows()
+    {
+        $popularShows = Follow::groupBy('tvRageId')->orderBy('follow_count', 'desc')->take(10)->get(['tvRageId', DB::raw('count(tvRageId) as follow_count')]);
+
+        return $popularShows;
     }
 
     /**
@@ -31,31 +40,31 @@ class FollowController extends Controller
     public function index()
     {
         $tvRageIds = Follow::where('userId', '=', Auth::user()->id)->get();
-        
+
         $followimgs = array();
         $tempArray = array();
-        
+
         foreach($tvRageIds as $follow) {
             $tvRageId = $follow['tvRageId'];
-            
+
             $follows = file_get_contents("http://api.tvmaze.com/lookup/shows?tvrage=$tvRageId");
             $follows = json_decode($follows);
-            
+
             $img = $follows->image->medium;
-            
+
             $tempArray = array($tvRageId => $img);
             array_push($followimgs, $tempArray);
         }
-            
+
         $followimgs = array_reverse($followimgs);
-        
-        
-        
+
+
+
         // //episode feed
         // $episodes = array();
         // $tempepisodes = array();
-        
-        
+
+
         // for($i = 0; $i < 0; $i++) {
 	       //  $date = date("Y-m-d",strtotime("-$i day"));
         //     $followfeed = file_get_contents("http://api.tvmaze.com/schedule?country=US&date=$date");
@@ -68,14 +77,14 @@ class FollowController extends Controller
         //                 $tempepisodes = array('showname' => $episode['show']['name'],  'image' => $episode['show']['image']['medium'], 'episodename' => $episode['name'], 'season' => $episode['season'], 'episode' => $episode['number'], 'summary' => str_replace($pTags, '', $episode['summary']), 'airdate' => $episode['airdate']);
 
         //                 array_push($episodes, $tempepisodes);
-                        
+
         //             }
         //         }
 
         //     }
-        
+
         // }
-        
+
 //        return $episodes;
         return view('timeline', compact('followimgs', 'tvRageIds'));
     }
@@ -99,14 +108,14 @@ class FollowController extends Controller
     public function store($tvRageId)
     {
         $follows = Follow::where('userId', '=', Auth::user()->id)->where('tvRageId', '=', $tvRageId)->first();
-        
+
         if (is_null($follows)) {
             $follow = new Follow;
             $follow->userId = Auth::user()->id;
             $follow->tvRageId = $tvRageId;
             $follow->save();
         }
-        
+
         return redirect('/timeline');
     }
 
@@ -153,8 +162,8 @@ class FollowController extends Controller
     public function destroy($tvRageId)
     {
         Follow::where('userId', '=', Auth::user()->id)->where('tvRageId', '=', $tvRageId)->delete();
-        
-        
+
+
         return redirect('timeline');
     }
 }

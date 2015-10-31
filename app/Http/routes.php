@@ -26,6 +26,7 @@ Route::get('/timeline', 'FollowController@index');
 
 Route::get('/tvrageids', 'FollowController@tvRageIds');
 
+Route::get('/popularshows', 'FollowController@getPopularShows');
 
 
 Route::get('/twitterlogin', function() {

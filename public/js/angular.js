@@ -18,6 +18,11 @@ app.controller('timelineController', function($scope, $http) {
     	$scope.tvRageIds = response;
     });
 
+    //Hämta populära tv serier OBS!-Fungerar inte än
+	$http.get("http://localhost:8000/popularshows").success(function(response) {
+    	$scope.popularShows = response;
+    });
+
 
 	setTimeout(function() {
 		var array = [];
