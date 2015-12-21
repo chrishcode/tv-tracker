@@ -5,6 +5,8 @@
 	<title>Document</title>
 
 	<link href='{{ URL::asset("http://fonts.googleapis.com/css?family=Quicksand:400,700,300") }}' rel='stylesheet' type='text/css'>
+	<link href='{{ URL::asset("https://fonts.googleapis.com/css?family=Comfortaa:400,300,700") }}' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link href='{{ URL::asset("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css") }}' rel='stylesheet'>
 	<link href='{{ URL::asset("css/main.css") }}' rel='stylesheet'>
@@ -22,7 +24,7 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="logo navbar-brand" href="/timeline">trakker.tv</a>
+                <a class="logo navbar-brand" href="/timeline"><img alt="logo" src="img/logo.png">trakker</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav search-nav">
@@ -34,10 +36,10 @@
 
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#" class="myshows"><i class="fa fa-television"></i> <span>Following</span></a>
+                    <a href="#" class="myshows ghostbtn"><i class="fa fa-television"></i> <span>My tv shows</span></a>
                 </li>
                 <li>
-                    <a href="/logout"><i class="fa fa-sign-out"></i> Sign Out</a>
+                    <a href="/logout" class="ghostbtn"><i class="fa fa-sign-out"></i> Sign Out</a>
                 </li>
                 <li>
                     <a href="#" class="last"><img class="img-circle userimg" src="{{ Auth::user()->avatarimg }}" alt="avatar">{{ Auth::user()->name }}</a>
@@ -110,7 +112,7 @@
 
 		<div id="sidebar" class="sidebar">
 
-			<div class="btn btn-default"><i class="fa fa-line-chart"></i> Popular tv shows</div>
+			<!-- <div class="btn btn-default"><i class="fa fa-line-chart"></i> Popular tv shows</div>
 
             <div class="sidebarshow">
 	                <div class="img">
@@ -158,12 +160,11 @@
 	                    <p class="descairdate">Action, Crime, Drama</p>
 	                    <p class="descairdate">USA Network</p>
 	            	</div>
-	        </div>
+	        </div> -->
 
             <div class="footer">
                 <ul>
                     <li>&copy; trakker.tv</li>
-                    <li><a href="mailto:chris.wohlfarth@gmail.com">Contact</a></li>
                 </ul>
             </div>
     	</div>

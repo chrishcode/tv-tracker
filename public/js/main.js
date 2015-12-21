@@ -48,9 +48,8 @@ $(document).ready(function() {
     });
 
     $('#search').focusin(function() {
-        $('#search').css('border-color', '#e1e8ed');
         $('#search').css('box-shadow', 'none');
-        $('#search').css('background-color', '#ffffff');
+        $('#search').css('background-color', '#edeff1');
         $('#myshows').animate({height: '0px'}, 200);
         $('#results').show();
         $('#resultswrap').show();
@@ -58,7 +57,7 @@ $(document).ready(function() {
     });
 
     $('#search').focusout(function() {
-        $('#search').css('background-color', '#E8E9EB');
+        $('#search').css('background-color', '#e9eaeb');
         $('#results').delay(100).hide(0);
         $('#resultswrap').delay(100).hide(0);
         $('.coverimg h1').delay(100).show(0);
@@ -96,5 +95,6 @@ $(document).ready(function() {
 
             $('#results').html(output);
         });
+
     });
 });
