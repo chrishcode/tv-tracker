@@ -31,7 +31,7 @@ app.controller('timelineController', function($scope, $http) {
 			var today = new Date();
 			today.setDate(today.getDate() - i);
 			var date = today.toISOString().substring(0, 10); //rätt format
-			
+
 			$http.get("http://api.tvmaze.com/schedule?country=US&date=" + date).success(function(response) {
 		    	array.push(response);
 		    });
@@ -58,7 +58,7 @@ app.controller('timelineController', function($scope, $http) {
 			var today = new Date();
 			today.setDate(today.getDate() - i);
 			var date = today.toISOString().substring(0, 10); //rätt format
-			
+
 			$http.get("http://api.tvmaze.com/schedule?country=US&date=" + date).success(function(response) {
 		    	moreArray.push(response);
 		    });
@@ -91,7 +91,7 @@ app.controller('timelineController', function($scope, $http) {
 //                 $tempepisodes = array('showname' => $episode['show']['name'],  'image' => $episode['show']['image']['medium'], 'episodename' => $episode['name'], 'season' => $episode['season'], 'episode' => $episode['number'], 'summary' => str_replace($pTags, '', $episode['summary']), 'airdate' => $episode['airdate']);
 
 //                 array_push($episodes, $tempepisodes);
-                
+
 //             }
 //         }
 

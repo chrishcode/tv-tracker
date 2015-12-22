@@ -49,6 +49,19 @@
         <!-- /.container -->
     </nav>
 
+	<div id="myshows">
+		<div class="container">
+			<div id="myshowswrap">
+				@foreach($followimgs as $followimg)
+		        	@foreach($followimg as $tvRageId => $img)
+			            <a class="unfollow" href="unfollow/{{ $tvRageId }}" title="Unfollow">
+			                <img class="myshowsimg" src="{{ $img }}">
+			            </a>
+		            @endforeach
+		        @endforeach
+			</div>
+		</div>
+	</div>
 
     <div class="coverimg">
 		<div id="resultswrap"><div class="container"><div id="results"></div></div></div>

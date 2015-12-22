@@ -47,6 +47,7 @@ class FollowController extends Controller
         foreach($tvRageIds as $follow) {
             $tvRageId = $follow['tvRageId'];
 
+
             $follows = file_get_contents("http://api.tvmaze.com/lookup/shows?tvrage=$tvRageId");
             $follows = json_decode($follows);
 
@@ -107,13 +108,15 @@ class FollowController extends Controller
      */
     public function store($tvRageId)
     {
-        $follows = Follow::where('userId', '=', Auth::user()->id)->where('tvRageId', '=', $tvRageId)->first();
+        if($tvRageId != 'null') {
+            $follows = Follow::where('userId', '=', Auth::user()->id)->where('tvRageId', '=', $tvRageId)->first();
 
-        if (is_null($follows)) {
-            $follow = new Follow;
-            $follow->userId = Auth::user()->id;
-            $follow->tvRageId = $tvRageId;
-            $follow->save();
+            if (is_null($follows)) {
+                $follow = new Follow;
+                $follow->userId = Auth::user()->id;
+                $follow->tvRageId = $tvRageId;
+                $follow->save();
+            }
         }
 
         return redirect('/timeline');
