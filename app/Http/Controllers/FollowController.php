@@ -39,6 +39,11 @@ class FollowController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        if(!$user) {
+            return redirect('/');
+        }
+
         $tvRageIds = Follow::where('userId', '=', Auth::user()->id)->get();
 
         $followimgs = array();

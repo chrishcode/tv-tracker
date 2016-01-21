@@ -2,7 +2,7 @@
 <html lang="en" ng-app="trakker">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>trakker - A minimal tv show tracker.</title>
 
 	<link href='{{ URL::asset("http://fonts.googleapis.com/css?family=Quicksand:400,700,300") }}' rel='stylesheet' type='text/css'>
 	<link href='{{ URL::asset("https://fonts.googleapis.com/css?family=Comfortaa:400,300,700") }}' rel='stylesheet' type='text/css'>
@@ -124,6 +124,13 @@
         </div>
 
 		<div id="sidebar" class="sidebar">
+			<h4><i class="fa fa-question-circle"></i> About trakker</h5>
+			<p>
+				Trakker helps you know when new episodes of your favorite tv shows come out.
+			</p>
+			<p>
+				Enjoy your tv shows!
+			</p>
 
 			<!-- <div class="btn btn-default"><i class="fa fa-line-chart"></i> Popular tv shows</div>
 
@@ -175,11 +182,11 @@
 	            	</div>
 	        </div> -->
 
-            <div class="footer">
+            <!-- <div class="footer">
                 <ul>
                     <li>&copy; trakker.tv</li>
                 </ul>
-            </div>
+            </div> -->
     	</div>
 
     </div>

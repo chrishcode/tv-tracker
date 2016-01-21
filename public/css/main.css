@@ -328,12 +328,20 @@ hr {
 
 .sidebar {
 	width: 25%;
-	height: 400px;
+	height: 160px;
 	background-color: #ececed;
 	float: right;
 	margin-top: 40px;
 	border-radius: 5px;
 	padding: 20px;
+}
+
+.sidebar h4 {
+	margin-top: 0;
+}
+
+.fa-question-circle {
+	color: #aaaaaa;
 }
 
 .sidebarshow {
@@ -448,4 +456,40 @@ hr {
   to {
     transform: rotate(359deg);
   }
+}
+
+
+
+/*layout responsive*/
+
+@media screen and (max-width: 1800px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .container {
+        width: 90%;
+    }
+
+	.search {
+		width: 350px;
+	}
+}
+
+@media screen and (max-width: 1150px) {
+    .container {
+        width: 100%;
+    }
+
+	.search {
+		width: 300px;
+	}
 }

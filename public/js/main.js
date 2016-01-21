@@ -34,7 +34,6 @@ $(document).ready(function() {
     });
 
 
-
     $('.myshows').click(function() {
 
         // $('#results').hide();
